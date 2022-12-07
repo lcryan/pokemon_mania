@@ -3,45 +3,46 @@ import './App.css';
 import axios from "axios";
 
 
-
 function App() {
 
     const [pokemonData, setPokemonData] = useState({});
 
     useEffect(() => {
-
-        async function fetchPokemon() {
-
+        async function getOnePokemon() {
             try {
-                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/jigglypuff`);
+                const response = await axios.get("https://pokeapi.co/api/v2/pokemon/charmander");
                 console.log(response);
                 setPokemonData(response);
-            } catch
-                (e) {
-                console.error(e);
+            } catch (e) {
+                console.error(e)
             }
         }
 
-        fetchPokemon();
-
-    }, []);
-
+        getOnePokemon();
+    })
 
     return (
         <>
-            <h2>This is {pokemonData.data.name} </h2>
-            <img src={pokemonData.data.sprites.front_default}/>
-            <ul>
-                {pokemonData.data.abilities.map((a) => {
-                    return <li key={a.ability.name}>{a.ability.name} </li>
-                })}
+            {Object.keys(pokemonData).length > 0 &&
+            <>
+                <h2>{pokemonData.data.name} </h2>
+                <img src={pokemonData.data.sprites.front_default}/>
+                <ul>
+                    His main abilities are:
 
-            </ul>
-            <p>{pokemonData.data.name}'s weight is {pokemonData.data.weight}</p>
-            <p>He can do {pokemonData.data.moves.length} moves! WOW!</p>
+                    {pokemonData.data.abilities.map((a) => {
+                        return <li key={a.ability.name}> {a.ability.name}</li>
+                    })}
+                </ul>
+                <p>{pokemonData.data.name}'s weight is {pokemonData.data.weight}</p>
+                <p>He has {pokemonData.data.moves.length} moves! Wow! </p>
+            </>
+
+            }
         </>
+
     );
 }
 
-
 export default App;
+
