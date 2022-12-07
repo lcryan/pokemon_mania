@@ -4,7 +4,7 @@ import axios from "axios";
 
 function PokemonFiche({name}) {
 
-    const [pokemonData, setPokemonData] = useState({});
+    const [pokemonData, setPokemonData] = useState([]);
 
     useEffect(() => {
         async function getOnePokemon() {
@@ -18,10 +18,9 @@ function PokemonFiche({name}) {
         }
 
         getOnePokemon();
-    })
+    }, [])
     return (
         <>
-
             {Object.keys(pokemonData).length > 0 &&
             <>
                 <h2>{pokemonData.data.name} </h2>
@@ -36,10 +35,8 @@ function PokemonFiche({name}) {
                 <p>{pokemonData.data.name}'s weight is {pokemonData.data.weight}</p>
                 <p>He has {pokemonData.data.moves.length} moves! Wow! </p>
             </>
-
             }
         </>
-
     );
 }
 
