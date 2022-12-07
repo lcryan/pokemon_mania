@@ -10,7 +10,7 @@ function App() {
     useEffect(() => {
         async function getOnePokemon() {
             try {
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon/charmander");
+                const response = await axios.get("https://pokeapi.co/api/v2/pokemon/pikachu");
                 console.log(response);
                 setPokemonData(response);
             } catch (e) {
