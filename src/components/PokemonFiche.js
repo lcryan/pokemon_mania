@@ -1,8 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
 
-function PokemonFiche({pokemonData}) {
+function PokemonFiche({name}) {
 
+    const [pokemonData, setPokemonData] = useState({});
+
+    useEffect(() => {
+        async function getOnePokemon() {
+            try {
+                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+                console.log(response);
+                setPokemonData(response);
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        getOnePokemon();
+    })
     return (
         <>
 
