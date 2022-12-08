@@ -33,7 +33,7 @@ function PokemonFiche({name}) {
                     })}
                 </ul>
                 <p>{pokemonData.data.name}'s weight is {pokemonData.data.weight}</p>
-                <p>He has {pokemonData.data.moves.length} moves! Wow! </p>
+                <p>He has {pokemonData.data.moves.length} moves! WOW! So cool! </p>
             </>
             }
         </>
