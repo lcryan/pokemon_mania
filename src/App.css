@@ -1,0 +1,10 @@
+.all-articles{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokemon-fiche{
+    flex: 1 0 500px;
+    box-sizing: border-box;
+    margin: 1rem .25em;
+}
