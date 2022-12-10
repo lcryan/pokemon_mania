@@ -5,7 +5,6 @@ function Pagination({toTheNextPage, toThePreviousPage}) {
         <>
             <button onClick={toThePreviousPage}>previous</button>
             <button onClick={toTheNextPage}>next</button>
-
         </>
     );
 }
