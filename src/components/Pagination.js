@@ -10,3 +10,4 @@ function Pagination({toTheNextPage, toThePreviousPage}) {
 }
 
 export default Pagination;
+

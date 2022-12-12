@@ -3,6 +3,7 @@ import './App.css';
 import axios from "axios";
 import PokemonFiche from "./components/PokemonFiche";
 import Pagination from "./components/Pagination";
+import PokemonBall from './assets/logos/pokemon-pokeball-vector-graphic.png'
 
 function App() {
 
@@ -44,10 +45,15 @@ function App() {
 
     return (
         <>
+            <div className="logo-image">
+                <img src={PokemonBall}/>
+            </div>
+            <div className="button-pagination">
             <Pagination
             toTheNextPage={nextPage ? toTheNextPage : null}
             toThePreviousPage={previousPage ? toThePreviousPage : null}
             />
+            </div>
             {pokemonArray.map((pokemon) => {
                 return <PokemonFiche name={pokemon.name}/>
             })}
