@@ -23,20 +23,20 @@ function PokemonFiche({name}) {
         <>
             {Object.keys(pokemonData).length > 0 &&
             <>
-
+<section className="pokemon-card-box">
                 <article className="pokemon-fiche">
-                <h2>{pokemonData.data.name} </h2>
-                <img src={pokemonData.data.sprites.front_default}/>
-                    <p><strong>Weight</strong> {pokemonData.data.weight}</p>
-                <p><strong>Moves</strong> {pokemonData.data.moves.length} </p>
+                    <h2>{pokemonData.data.name} </h2>
+                    <img src={pokemonData.data.sprites.front_default}/>
+                    <p><strong>Moves</strong> {pokemonData.data.moves.length} </p>
+                    <p><strong>Weight:</strong> {pokemonData.data.weight}</p>
+                    <strong>Abilities:</strong>
                     <ul>
-                        <strong>Abilities</strong>
                         {pokemonData.data.abilities.map((a) => {
                             return <li key={a.ability.name}> {a.ability.name}</li>
                         })}
                     </ul>
                 </article>
-
+</section>
             </>
             }
         </>

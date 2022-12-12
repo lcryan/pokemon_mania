@@ -9,9 +9,9 @@ function App() {
 
     const [pokemonArray, setPokemonArray] = useState([]);
     const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon")
-    const[nextPage, setNextPage] = useState("");
+    const [nextPage, setNextPage] = useState("");
     const [previousPage, setPreviousPage] = useState("");
-    const[loading, setLoading] = useState(true); /*our application is loading! Within this we need info for user */
+    const [loading, setLoading] = useState(true); /*our application is loading! Within this we need info for user */
 
 
     useEffect(() => {
@@ -45,15 +45,13 @@ function App() {
 
     return (
         <>
-            <div className="logo-image">
-                <img src={PokemonBall}/>
+            <div className="pokemon-ball">
+                <img className="pokemon-ball-logo" src={PokemonBall}/>
             </div>
-            <div className="button-pagination">
+
             <Pagination
-            toTheNextPage={nextPage ? toTheNextPage : null}
-            toThePreviousPage={previousPage ? toThePreviousPage : null}
-            />
-            </div>
+                toTheNextPage={nextPage ? toTheNextPage : null}
+                toThePreviousPage={previousPage ? toThePreviousPage : null}/>
             {pokemonArray.map((pokemon) => {
                 return <PokemonFiche name={pokemon.name}/>
             })}
